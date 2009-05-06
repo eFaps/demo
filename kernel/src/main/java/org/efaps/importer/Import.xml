@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Copyright 2003 - 2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:         	jmo
+ Revision:       	$Rev$
+ Last Changed:   	$Date$
+ Last Changed By:	$Author$
+
+-->
+
+
+<import dateformat="yyyy-MM-dd'T'HH:mm:ss'Z'">
+  
+
+
+ <object type= "TeamWork_RootCollection" >
+  <attribute name= "Name" > noch j,hv hvhjv  jhvmein Test </attribute>
+  <attribute name= "Created">2001-01-01T18:23:23Z</attribute>
+  <linkattribute name="Creator" type="Admin_User_Person">
+     <queryattribute name="Name">Jan.Moxter</queryattribute>
+  </linkattribute>
+  
+  <object type= "TeamWork_Collection" >
+    <parentattribute name= "ParentCollectionLink" />
+    <attribute name= "Name" > erste Collection </attribute>
+    <attribute name= "Created">1999-01-01T18:23:23Z</attribute>
+  	<linkattribute name="Creator" type="Admin_User_Person">
+      <queryattribute name="Name">Tim.Moxter</queryattribute>
+  	</linkattribute>
+
+      <object type= "TeamWork_Collection" >
+        <parentattribute name= "ParentCollectionLink" />
+        <attribute name= "Created">1991-01-01T18:23:23Z</attribute>
+        <attribute name= "Name" > noch eine Collection </attribute>
+		<linkattribute name="Creator" type="Admin_User_Person">
+          <queryattribute name="Name">Jan.Moxter</queryattribute>
+  	    </linkattribute>
+          
+          <object type= "TeamWork_Source" >
+            <parentattribute name= "ParentCollectionLink" />
+            <attribute name= "Name" > eine Source </attribute>
+
+            <object type= "TeamWork_SourceVersion" >
+              <parentattribute name= "ParentSourceLink" />
+              <attribute name= "Name" > eine Version </attribute>
+            </object>
+                        <object type= "TeamWork_SourceVersion" >
+              <parentattribute name= "ParentSourceLink" />
+              <attribute name= "Name" > noch ne Version </attribute>
+            </object>
+
+          </object>
+
+        </object>
+
+     </object>
+   
+  </object>
+
+</import>

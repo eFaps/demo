@@ -1,0 +1,105 @@
+
+--initDB
+INSERT INTO t_adrunlevel(
+             runlevel, uuid, parent)
+    VALUES ( 'initDB', 'acf72b47-4d29-4910-9215-653013d10e82', null);
+
+
+--user
+INSERT INTO t_adrunlevel (
+             runlevel, uuid, parent)
+SELECT 'user', 'dfa5d8df-18fa-4dc3-871f-ab58991eb2c0', t_adrunlevel1.id
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='acf72b47-4d29-4910-9215-653013d10e82';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 1,'org.efaps.admin.user.JAASSystem','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='dfa5d8df-18fa-4dc3-871f-ab58991eb2c0';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 2,'org.efaps.admin.user.Role','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='dfa5d8df-18fa-4dc3-871f-ab58991eb2c0';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 3,'org.efaps.admin.user.Group','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='dfa5d8df-18fa-4dc3-871f-ab58991eb2c0';
+
+
+
+--types
+INSERT INTO t_adrunlevel (
+             runlevel, uuid, parent)
+SELECT 'types', '6384c944-cfe7-401c-859e-f5de07b96137', t_adrunlevel1.id
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='dfa5d8df-18fa-4dc3-871f-ab58991eb2c0';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 4,'org.efaps.admin.datamodel.AttributeType','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='6384c944-cfe7-401c-859e-f5de07b96137';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 5,'org.efaps.admin.datamodel.SQLTable','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='6384c944-cfe7-401c-859e-f5de07b96137';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 6,'org.efaps.admin.datamodel.Type','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='6384c944-cfe7-401c-859e-f5de07b96137';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 7,'org.efaps.admin.datamodel.Attribute','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='6384c944-cfe7-401c-859e-f5de07b96137';
+
+
+--access
+INSERT INTO t_adrunlevel (
+             runlevel, uuid, parent)
+SELECT 'access', 'ff9e3e31-42a8-42ea-86bb-c325289ff811', t_adrunlevel1.id
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='6384c944-cfe7-401c-859e-f5de07b96137';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 8,'org.efaps.admin.access.AccessType','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='ff9e3e31-42a8-42ea-86bb-c325289ff811';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 9,'org.efaps.admin.access.AccessSet','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='ff9e3e31-42a8-42ea-86bb-c325289ff811';
+
+--ui
+INSERT INTO t_adrunlevel (
+             runlevel, uuid, parent)
+SELECT 'ui', 'b90984b5-15b0-4bcb-924b-4fc0465dfe95', t_adrunlevel1.id
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='ff9e3e31-42a8-42ea-86bb-c325289ff811';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 10,'org.efaps.admin.ui.UserInterfaceObject','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='b90984b5-15b0-4bcb-924b-4fc0465dfe95';
+
+INSERT INTO t_adrunleveldef (
+             runlevelid, priority, "class",method)
+SELECT t_adrunlevel1.id, 11,'org.efaps.admin.event.EventDefinition','initialise'
+FROM t_adrunlevel t_adrunlevel1
+Where t_adrunlevel1.uuid ='b90984b5-15b0-4bcb-924b-4fc0465dfe95';
+
+

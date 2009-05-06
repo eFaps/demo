@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003-2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          jmo
+ Revision:        $Rev:  $
+ Last Changed:    $Date:  $
+ Last Changed By: $Author:  $
+
+-->
+
+<eFaps-Properties>
+  <uuid>caa29a5d-98f7-4721-b032-f1376dcd8e88</uuid>
+  <bundle name="AttributeRessource" sequence="2"/>
+  <resource>
+    <type>Properties</type>
+    <language></language> 
+    <file>/Users/janmoxter/Documents/workspace/eFaps/kernel/src/main/java/org/efaps/properties/AttributeRessource.properties</file>
+  </resource>
+  <resource>
+    <type>Properties</type>
+    <language>de</language> 
+    <file>/Users/janmoxter/Documents/workspace/eFaps/kernel/src/main/java/org/efaps/properties/AttributeRessource_de.properties</file>
+  </resource>
+</eFaps-Properties>

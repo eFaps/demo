@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:         	jmo
+ Revision:       	$Rev$
+ Last Changed:   	$Date$
+ Last Changed By:	$Author$
+
+-->
+
+<datamodel-type>
+  <uuid>dc718d89-8b41-4363-bdc8-b57f5532287c</uuid>
+
+  <definition>
+    <version>
+      <application>lucene</application>
+      <global>1</global>
+      <local>$Rev$</local>
+      <mode>(version==1)</mode>
+    </version>
+
+    <name>Lucene_Type2Indexer</name>
+  
+    <attribute>
+      <name>OID</name>
+      <type>OID</type>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>ID</sqlcolumn>
+    </attribute>
+
+    <attribute>
+      <name>ID</name>
+      <type>Integer</type>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>ID</sqlcolumn>
+    </attribute>
+
+
+   <attribute>
+      <name>Creator</name>
+      <type>CreatorLink</type>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>CREATOR</sqlcolumn>
+    </attribute>
+
+    <attribute>
+      <name>Created</name>
+      <type>Created</type>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>CREATED</sqlcolumn>
+    </attribute>
+
+    <attribute>
+      <name>Modifier</name>
+      <type>ModifierLink</type>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>MODIFIER</sqlcolumn>
+    </attribute>
+
+    <attribute>
+      <name>Modified</name>
+      <type>Modified</type>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>MODIFIED</sqlcolumn>
+    </attribute>
+  </definition>
+  <definition> 
+    <version>
+      <application>lucene</application>
+      <global>1</global>
+      <local>$Rev$</local>
+      <mode>(version==2)</mode>
+    </version>
+
+
+    <name>Lucene_Type2Indexer</name>
+ 
+	<attribute>
+      <name>Index2Type</name>
+      <type>Link</type>
+      <typelink>Lucene_Index2Type</typelink>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>INDEX2TYPE</sqlcolumn>
+    </attribute>
+	<attribute>
+      <name>Indexer</name>
+      <type>Link</type>
+       <typelink>Lucene_Indexer</typelink>
+      <sqltable>Lucene_Type2IndexerSQLTable</sqltable>
+      <sqlcolumn>INDEXER</sqlcolumn>
+    </attribute>
+    
+   
+    <!-- properties -->
+    
+
+  </definition>
+</datamodel-type>
