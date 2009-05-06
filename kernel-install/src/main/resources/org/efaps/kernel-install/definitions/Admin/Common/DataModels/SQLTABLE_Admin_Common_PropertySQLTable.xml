@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003-2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          tmo
+ Revision:        $Rev:1145 $
+ Last Changed:    $Date:2007-07-22 21:19:03 +0200 (So, 22 Jul 2007) $
+ Last Changed By: $Author:tmo $
+
+-->
+
+<datamodel-sqltable>
+  <uuid>5cf99cd6-06d6-4322-a344-55d206666c9c</uuid>
+
+  <!-- Common Properties -->
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>1</global>
+      <local>$Rev:1145 $</local>
+      <mode>(version==1)</mode>
+    </version>
+
+    <database>
+      <create>true</create>
+      <update>true</update>
+      <table-name>T_CMPROPERTY</table-name>
+      <!-- columns -->
+      <column name="ABSTRACT"   type="INTEGER"                    not-null="true"/>
+      <column name="NAME"       type="STRING_SHORT" length="128"  not-null="true"/>
+      <column name="VALUE"      type="STRING_SHORT" length="128"/>
+      <!-- constraints -->
+      <unique name="T_CMPROPERTY_UK_ABNAME" columns="ABSTRACT,NAME"/>
+    </database>
+  </definition>
+
+  <!-- make the contraints for the SQL table -->
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>2</global>
+      <local>$Rev:1145 $</local>
+      <mode>(version==3)</mode>
+    </version>
+    <database>
+      <create>false</create>
+      <update>false</update>
+      <table-name>T_CMPROPERTY</table-name>
+      <!-- constraints -->
+      <foreign name="T_CMPROPERTY_FK_ABSTR"     key="ABSTRACT"      reference="T_CMABSTRACT(ID)"/>
+<!-- on delete cascade -->
+     </database>
+  </definition>
+
+  <!-- define datamodel -->
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>3</global>
+      <local>$Rev:1145 $</local>
+      <mode>(version==4)</mode>
+    </version>
+    <name>Admin_Common_PropertySQLTable</name>
+    <database>
+      <table-name>T_CMPROPERTY</table-name>
+    </database>
+  </definition>
+</datamodel-sqltable>
