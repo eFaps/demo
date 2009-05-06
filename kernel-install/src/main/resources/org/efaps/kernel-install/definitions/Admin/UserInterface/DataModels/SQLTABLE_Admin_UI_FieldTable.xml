@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003-2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          tmo
+ Revision:        $Rev:1144 $
+ Last Changed:    $Date:2007-07-22 21:10:06 +0200 (So, 22 Jul 2007) $
+ Last Changed By: $Author:tmo $
+
+-->
+
+<datamodel-sqltable>
+  <uuid>93add055-d39c-44b8-9e01-6410182f8076</uuid>
+
+  <!-- fields for forms and tables -->
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>2</global>
+      <local>$Rev:1144 $</local>
+      <mode>(version==1)</mode>
+    </version>
+    <database>
+      <table-name>T_UIFIELD</table-name>
+      <parent-table>T_CMABSTRACT</parent-table>
+      <create>true</create>
+      <update>true</update>
+      <!-- columns -->
+      <column name="COLLECTION" type="INTEGER"                      not-null="true"/>
+    </database>
+  </definition>
+
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>2</global>
+      <local>$Rev:1144 $</local>
+      <mode>(version==3)</mode>
+    </version>
+    <database>
+      <table-name>T_UIFIELD</table-name>
+      <update>true</update>
+      <foreign name="UIFLD_FK_CLCT"         key="COLLECTION"    reference="T_CMABSTRACT(ID)"/>
+     </database>
+  </definition>
+
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>3</global>
+      <local>$Rev:1144 $</local>
+      <mode>(version==4)</mode>
+    </version>
+    <name>Admin_UI_FieldTable</name>
+    <parent>Admin_Common_AbstractSQLTable</parent>
+    <database>
+      <table-name>T_UIFIELD</table-name>
+    </database>
+  </definition>
+</datamodel-sqltable>

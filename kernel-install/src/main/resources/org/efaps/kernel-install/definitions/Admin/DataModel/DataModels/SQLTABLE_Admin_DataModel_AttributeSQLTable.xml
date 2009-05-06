@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003-2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          tmo
+ Revision:        $Rev:1144 $
+ Last Changed:    $Date:2007-07-22 21:10:06 +0200 (So, 22 Jul 2007) $
+ Last Changed By: $Author:tmo $
+
+-->
+
+<datamodel-sqltable>
+  <uuid>d3a64746-3666-4678-9603-f304bf16bb92</uuid>
+
+  <!-- attributes of types -->
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>2</global>
+      <local>$Rev:1144 $</local>
+      <mode>(version==2)</mode>
+    </version>
+
+    <database>
+      <table-name>T_DMATTRIBUTE</table-name>
+      <parent-table>T_CMABSTRACT</parent-table>
+      <create>true</create>
+      <update>true</update>
+      <!-- columns -->
+      <column name="DMTABLE"            type="INTEGER"                      not-null="true"/>
+      <column name="DMTYPE"             type="INTEGER"                      not-null="true"/>
+      <column name="DMATTRIBUTETYPE"    type="INTEGER"                      not-null="true"/>
+      <column name="DMTYPELINK"         type="INTEGER"/>
+      <column name="SQLCOLUMN"          type="STRING_SHORT" length="50"     not-null="true"/>
+      <column name="DEFAULTVAL"         type="STRING_SHORT" length="240" />
+     </database>
+  </definition>
+
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>2</global>
+      <local>$Rev:1144 $</local>
+      <mode>(version==3)</mode>
+    </version>
+
+    <database>
+      <!-- create representing all attributes -->
+      <sql>
+        create view V_ADMINATTRIBUTE as
+          select
+                T_CMABSTRACT.ID,
+                T_CMABSTRACT.NAME,
+                T_DMATTRIBUTE.DMTABLE,
+                T_DMATTRIBUTE.DMTYPE,
+                T_DMATTRIBUTE.DMATTRIBUTETYPE,
+                T_DMATTRIBUTE.DMTYPELINK,
+                T_DMATTRIBUTE.SQLCOLUMN,
+                T_DMATTRIBUTE.DEFAULTVAL
+            from T_DMATTRIBUTE,T_CMABSTRACT
+            where T_CMABSTRACT.ID=T_DMATTRIBUTE.ID
+      </sql>
+      <!-- update of the sql table -->
+      <table-name>T_DMATTRIBUTE</table-name>
+      <update>true</update>
+      <!-- constraints -->
+      <foreign name="DMATTR_FK_DMTABLE"     key="DMTABLE"           reference="T_DMTABLE(ID)"/>
+      <foreign name="DMATTR_FK_DMTYPE"      key="DMTYPE"            reference="T_DMTYPE(ID)"/>
+      <foreign name="DMATTR_FK_DMATTRTP"    key="DMATTRIBUTETYPE"   reference="T_DMATTRIBUTETYPE(ID)"/>
+      <foreign name="DMATTR_FK_DMTPLINK"    key="DMTYPELINK"        reference="T_DMTYPE(ID)"/>
+    </database>
+  </definition>
+
+
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>3</global>
+      <local>$Rev:1144 $</local>
+      <mode>(version==4)</mode>
+    </version>
+    <name>Admin_DataModel_AttributeSQLTable</name>
+    <parent>Admin_Common_AbstractSQLTable</parent>
+    <database>
+      <table-name>T_DMATTRIBUTE</table-name>
+    </database>
+  </definition>
+</datamodel-sqltable>
+
