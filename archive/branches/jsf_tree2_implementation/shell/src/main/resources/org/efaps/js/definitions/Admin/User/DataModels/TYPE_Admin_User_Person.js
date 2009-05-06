@@ -1,0 +1,72 @@
+/*
+ * Copyright 2006 The eFaps Team
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Author:          tmo
+ * Revision:        $Rev$
+ * Last Changed:    $Date$
+ * Last Changed By: $Author$
+ */
+
+with (TYPE)  {
+  setParentType(new Type("Admin_User_Abstract"));
+  with (addAttribute("FirstName"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("FIRSTNAME");
+  }
+  with (addAttribute("LastName"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("LASTNAME");
+  }
+  with (addAttribute("Email"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("EMAIL");
+  }
+  with (addAttribute("Organisation"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("ORG");
+  }
+  with (addAttribute("Url"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("URL");
+  }
+  with (addAttribute("Phone"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("PHONE");
+  }
+  with (addAttribute("Mobile"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("MOBILE");
+  }
+  with (addAttribute("Fax"))  {
+    setAttributeType("String");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("FAX");
+  }
+  with (addAttribute("Password"))  {
+    setAttributeType("Password");
+    setSQLTable("Admin_User_PersonTable");
+    setSQLColumn("PASSWORD");
+  }
+  addProperty("Form",                   "Admin_User_PersonForm");
+  addProperty("Icon",                   "${ROOTURL}/servlet/image/eFapsAdminUserPerson");
+  addProperty("Tree",                   "Admin_User_PersonTree");
+}

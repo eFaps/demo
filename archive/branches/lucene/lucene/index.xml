@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003 - 2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          jmo
+ Revision:        $Rev$
+ Last Changed:    $Date$
+ Last Changed By: $Author$
+
+-->
+<lucene-index>
+  
+  <index name="defaultIndex" path="/Users/janmoxter/Documents/workspace/eFaps/lucene/target/lucene/indexMain/" />
+  
+  <lucene-analyzer>
+    <analyzer class="org.apache.lucene.analysis.standard.StandardAnalyzer" forcenew="FALSE"/>
+ 
+     <stopword>a</stopword>
+     <stopword>an</stopword>
+     <stopword>and</stopword>
+     <stopword>are</stopword>
+     <stopword>as</stopword>
+     <stopword>at</stopword>
+     <stopword>be</stopword>
+     <stopword>but</stopword>
+     <stopword>by</stopword>
+     <stopword>for</stopword>
+     <stopword>if</stopword>
+     <stopword>in</stopword>
+     <stopword>into</stopword>
+     <stopword>is</stopword>
+     <stopword>it</stopword>
+     <stopword>no</stopword>
+     <stopword>not</stopword>
+     <stopword>of</stopword>
+     <stopword>on</stopword>
+     <stopword>or</stopword>
+     <stopword>s</stopword>
+     <stopword>such</stopword>
+     <stopword>t</stopword>
+     <stopword>that</stopword>
+     <stopword>the</stopword>
+     <stopword>their</stopword>
+     <stopword>then</stopword>
+     <stopword>there</stopword>
+     <stopword>these</stopword>
+     <stopword>they</stopword>
+     <stopword>this</stopword>
+     <stopword>to</stopword>
+     <stopword>was</stopword>
+     <stopword>will</stopword>
+     <stopword>with</stopword>
+    
+    
+  </lucene-analyzer>
+
+  <lucene-indexer>
+    <indexer filetyp="html" indexer="org.efaps.integration.lucene.indexer.HtmIndexer" />
+    <indexer filetyp="htm"  indexer="org.efaps.integration.lucene.indexer.HtmIndexer" />
+    <indexer filetyp="odt"  indexer="org.efaps.integration.lucene.indexer.OOIndexer" />
+    <indexer filetyp="xls"  indexer="org.efaps.integration.lucene.indexer.ExcelIndexer" />
+    <indexer filetyp="xml"  indexer="org.efaps.integration.lucene.indexer.XmlIndexer" />
+    <indexer filetyp="txt"  indexer="org.efaps.integration.lucene.indexer.TxtIndexer" />
+    <indexer filetyp="doc"  indexer="org.efaps.integration.lucene.indexer.MSWordIndexer" />
+    <indexer filetyp="rtf"  indexer="org.efaps.integration.lucene.indexer.RtfIndexer" />
+    <indexer filetyp="pdf"  indexer="org.efaps.integration.lucene.indexer.PDFIndexer" />
+    <indexer filetyp="ppt"  indexer="org.efaps.integration.lucene.indexer.PptIndexer" />
+  </lucene-indexer>
+  
+  <type>
+    <name>TeamWork_SourceVersion</name>
+    <attribute name="Creator">
+      <lucene-field class="org.efaps.admin.user.Person" method="getName" store="YES" index="UN_TOKENIZED"/>
+    </attribute>
+    <attribute name="Created">
+      <lucene-field class="" method="" store="YES" index="UN_TOKENIZED"/>
+    </attribute>
+    <attribute name="Modifier">
+      <lucene-field class="org.efaps.admin.user.Person" method="getId" store="YES" index="UN_TOKENIZED"/>
+    </attribute>
+    <attribute name="Modified">
+      <lucene-field class="" method="" store="YES" index="UN_TOKENIZED"/>
+    </attribute>
+    <attribute name="Name">
+      <lucene-field class="" method="" store="YES" index="UN_TOKENIZED"/>
+    </attribute>
+  
+  </type>
+
+
+</lucene-index>

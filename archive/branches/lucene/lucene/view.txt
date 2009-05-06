@@ -1,0 +1,8 @@
+-- DROP VIEW v_lucenemaxid;
+
+CREATE OR REPLACE VIEW v_lucenemaxid AS 
+ SELECT lucenelog."index" as ID, max(lucenelog.id) AS lucenelogid, lucenelog."index"
+   FROM lucenelog
+  GROUP BY lucenelog."index";
+
+ALTER TABLE v_lucenemaxid OWNER TO efaps;

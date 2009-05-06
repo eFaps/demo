@@ -1,0 +1,33 @@
+--for importing
+--deactivate Created by Changing Type to DateTimeType
+UPDATE "DMATTRIBUTETYPE" SET CLASSNAME = 'org.efaps.admin.datamodel.attributetype.DateTimeType' WHERE "NAME" = 'Created';
+
+--deactivate Creator by changing Type to 210 = Integer
+update dmattribute
+set dmattributetype = 210  where dmattribute.id in (select dmattribute.id from dmattribute inner join abstract on abstract.id = dmattribute.id where dmtype in(
+select id from abstract where  name ='YDSS_Abstract') and abstract.name ='Creator');
+
+--deactivate Creator by changing Type to 210 = Integer
+update dmattribute
+set dmattributetype = 210  where dmattribute.id in(
+select dmattribute.id from dmattribute inner join abstract on abstract.id = dmattribute.id where dmtype in(
+select id from abstract where  name ='YDSS_DocumentVersion') and abstract.name ='Creator' );
+
+
+
+
+--Changing Back to Normal
+UPDATE "DMATTRIBUTETYPE" SET CLASSNAME = 'org.efaps.admin.datamodel.attributetype.CreatedType' WHERE "NAME" = 'Created';
+
+update dmattribute
+set dmattributetype = 411  where dmattribute.id in (select dmattribute.id from dmattribute inner join abstract on abstract.id = dmattribute.id where dmtype in(
+select id from abstract where  name ='YDSS_Abstract') and abstract.name ='Creator');
+
+update dmattribute
+set dmattributetype = 411  where dmattribute.id in(
+select dmattribute.id from dmattribute inner join abstract on abstract.id = dmattribute.id where dmtype in(
+select id from abstract where  name ='YDSS_DocumentVersion') and abstract.name ='Creator' );
+
+
+
+
