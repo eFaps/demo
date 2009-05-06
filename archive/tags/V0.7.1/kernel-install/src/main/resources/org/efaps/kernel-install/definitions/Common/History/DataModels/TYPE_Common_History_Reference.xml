@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003-2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          jmo
+ Revision:        $Rev:1145 $
+ Last Changed:    $Date:2007-07-22 21:19:03 +0200 (So, 22 Jul 2007) $
+ Last Changed By: $Author:tmo $
+
+-->
+
+<datamodel-type>
+  <uuid>5d0328b3-2cd1-403d-9880-d2cef5bdc5f1</uuid>
+
+  <!-- create type -->
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>1</global>
+      <local>$Rev:1145 $</local>
+      <mode>(version==5)</mode>
+    </version>
+    <name>Common_History_Reference</name>
+  </definition>
+
+  <!-- define type -->
+  <definition>
+    <version>
+      <application>eFaps</application>
+      <global>1</global>
+      <local>$Rev:1145 $</local>
+      <mode>(version==6)</mode>
+    </version>
+    <name>Common_History_Reference</name>
+    <parent>Common_History_Abstract</parent>
+    <attribute>
+      <name>ToType</name>
+       <type>Link</type>
+      <typelink>Admin_DataModel_Type</typelink>
+      <sqltable>Common_History_ReferenceSQLTable</sqltable>
+      <sqlcolumn>TOTYPEID</sqlcolumn>
+    </attribute>
+    <attribute>
+      <name>ToID</name>
+      <type>Integer</type>
+      <sqltable>Common_History_ReferenceSQLTable</sqltable>
+      <sqlcolumn>TOID</sqlcolumn>
+    </attribute>
+    <property name="Tree">Common_History_AttributesTree</property>
+  </definition>
+
+</datamodel-type>

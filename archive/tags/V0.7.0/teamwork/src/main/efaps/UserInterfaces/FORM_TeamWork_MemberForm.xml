@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ Copyright 2003-2007 The eFaps Team
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ Author:          jmo
+ Revision:        $Rev$
+ Last Changed:    $Date$
+ Last Changed By: $Author$
+
+-->
+
+<ui-form>
+  <uuid>a0a17f5b-7ae2-4197-8528-d6e14413124f</uuid>
+
+  <!-- ************************************************************************
+    version definition used to create the form 
+  ************************************************************************* -->
+  <definition>
+    <version>
+      <application>teamwork</application>
+      <global>1</global>
+      <local>$Rev$</local>
+      <mode>true</mode>
+      <mode>(version==2)</mode>
+    </version>
+    <name>TeamWork_MemberForm</name>
+  </definition>
+    
+  <!-- ************************************************************************
+    version definition used to define the form 
+  ************************************************************************* -->
+  <definition>
+    <version>
+      <application>teamwork</application>
+      <global>1</global>
+      <local>$Rev$</local>
+      <mode>true</mode>
+      <mode>(version>=3)</mode>
+    </version>
+    <name>TeamWork_MemberForm</name>
+    <!-- fields -->
+    <field name="type">
+      <property name="Creatable">false</property>
+      <property name="Editable">false</property>
+      <property name="Expression">Type</property>
+      <property name="Searchable">false</property>
+      <property name="ShowTypeIcon">true</property>
+    </field>
+    
+    <field name="user">
+      <property name="Columns">20</property>
+      <property name="Creatable">true</property>
+      <property name="Editable">false</property>
+      <property name="Expression">UserAbstractLink</property>
+      <property name="Label">TeamWork_Member/UserAbstractLink.Label</property>
+      <property name="Required">true</property>
+      <property name="Searchable">true</property>
+      <trigger name="TeamWork_MemberForm/user" event="UI_FIELD_VALUE" 
+        program="org.efaps.teamwork.MemberFieldValue"/>
+
+    </field>
+  
+    <field name="accesset">     
+      <property name="Expression">AccessSetLink</property>
+      <property name="Label">TeamWork_Member/AccessSetLink.Label</property>
+      <property name="Editable">true</property>
+      <property name="Creatable">true</property>
+      <property name="Required">true</property>
+    </field>
+   
+    
+  </definition>
+
+</ui-form>
